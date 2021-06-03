@@ -1,0 +1,16 @@
+***************************************************
+npm install @aws-cdk/aws-appsync
+npm install @aws-cdk/aws-lambda
+npm install @aws-cdk/aws-ec2
+npm install @aws-cdk/aws-rds
+npm install @aws-cdk/aws-iam
+/*
+mkdir lambda-layers
+cd lambda-layers
+mkdir nodejs
+cd nodejs
+*/
+npm init --yes
+npm install data-api-client
+npm install serverless-mysql
+***************************************************

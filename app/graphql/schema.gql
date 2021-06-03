@@ -1,0 +1,46 @@
+type userType {
+    id: ID!
+    name: String!
+}
+
+type restaurantType {
+    id: ID!
+    name: String!
+    address: String!
+    cuisine: String!
+}
+
+type Query {
+    allUsers: [userType!]
+    allRestaurants: [restaurantType!]
+}
+
+input userInput {
+    id: ID!
+    name: String!
+}
+
+input restaurantInput {
+    id: ID!
+    name: String!
+    address: String!
+    cuisine: String!
+}
+
+type Mutation {
+    createUser(user: userInput!): userType
+    deleteUser(thatId: ID!): String
+    createRestaurant(restaurant: restaurantInput!): restaurantType
+    deleteRestaurant(thatId: ID!): String
+}
+
+type Subscription {
+    onCreateUser: userType
+       @aws_subscribe(mutations: ["createUser"])
+    onDeleteUser: String
+       @aws_subscribe(mutations: ["deleteUser"])
+    onCreateRestaurant: restaurantType
+       @aws_subscribe(mutations: ["createRestaurant"])
+    onDeleteRestaurant: String
+       @aws_subscribe(mutations: ["deleteRestaurant"])
+}
